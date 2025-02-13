@@ -15,6 +15,7 @@ def eval_exact(t):
      f = -1 / np.log(t+1)
      return f
 
+# from Canvas:
 def RK4(a,b,h,ya):
 
      N = int((b-a)/h)
@@ -37,6 +38,7 @@ def RK4(a,b,h,ya):
 
      return (yapp,t)
 
+# from Canvas:
 def explicit_euler(a,b,h,ya):
 
      N = int((b-a)/h)
@@ -55,6 +57,7 @@ def explicit_euler(a,b,h,ya):
 
      return (yapp,t)
 
+# modify above for the midpoint Euler
 def modified_euler(a,b,h,ya):
 
      N = int((b-a)/h)
@@ -74,16 +77,21 @@ def modified_euler(a,b,h,ya):
 
      return (yapp,t)
 
+# starting y val
 y1 = -1 / np.log(2)
 
-hE = 0.025
-hME = 0.05
-hRK4 = 0.1
+# set h's for each method
+hE = 0.025 # Euler
+hME = 0.05 # Modified Euler
+hRK4 = 0.1 # RK4
 
+# end points to try
 t = np.array([1, 1.2, 1.4, 1.6, 1.8, 2])
 
+# sketchy table making
 print(' t   ', 'Explicit Euler', '      Modified Euler', '          RK4')
 
+# calc approximation using each method with vector of endpoints b
 for b in t:
     euler, tE = explicit_euler(1,b,hE,y1)
     modifiedEuler, tME = modified_euler(1, b, hME, y1)
