@@ -19,9 +19,9 @@ def makeSys(a, b, h, alpha, beta, r):
     x = np.linspace(a, b, N + 1)
 
     for i in range(1, N):
-        A[i, i - 1] = (x[i] * np.exp(x[i]) + np.exp(x[i])) / (h**2) + (2*x[i] * np.exp(x[i]) + np.exp(x[i])) / (2*h)
+        A[i, i - 1] = (x[i] * np.exp(x[i]) + np.exp(x[i])) / (h**2) - (2 * np.exp(x[i]) + x[i] * np.exp(x[i])) / (2*h)
         A[i, i] = -2 * (x[i] * np.exp(x[i]) + np.exp(x[i])) / (h**2)
-        A[i, i + 1] = (x[i] * np.exp(x[i]) + np.exp(x[i])) / (h**2) + (2*x[i] * np.exp(x[i]) + np.exp(x[i])) / (2*h)
+        A[i, i + 1] = (x[i] * np.exp(x[i]) + np.exp(x[i])) / (h**2) + (2 * np.exp(x[i]) + x[i] * np.exp(x[i])) / (2*h)
         S[i] = r(a + i * h)
 
     return A, S, x
@@ -42,10 +42,10 @@ for i in range(len(h)):
     ysol = sol(x)
     print('h = ', h[i])
     err[i] = np.linalg.norm(y - ysol)
-    print('Error: ', err[i])
-    inv = np.linalg.inv(A)
-    K = np.linalg.norm(A) * np.linalg.norm(inv)
-    print('Condition number K: ', K)
+    # print('Error: ', err[i])
+    # inv = np.linalg.inv(A)
+    # K = np.linalg.norm(A) * np.linalg.norm(inv)
+    # print('Condition number K: ', K)
 
 
 fig = go.Figure()
