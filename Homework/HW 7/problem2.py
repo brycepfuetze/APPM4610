@@ -75,7 +75,7 @@ def driver():
      # Add titles and labels
      fig.update_layout(title='Boundary Condition Method Comparison',
                   xaxis_title='h',
-                  yaxis_title='||error||',
+                  yaxis_title='|error| at x = 0.5',
                   xaxis_type='log',
                   yaxis_type='log')
      fig.show()

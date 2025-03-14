@@ -5,7 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
-# use my first attempt at problem 1...
+# use my first attempt at problem 1:
 def makeSys(a, b, h, alpha, beta, r):
     N = int((b - a) / h)
     A = np.zeros((N + 1, N + 1))
@@ -31,7 +31,7 @@ b = 1
 alpha = 0
 beta = 0
 r = lambda x: np.exp(x) * (-9*np.pi**2 * (x+1) * np.sin(3* np.pi * x) + 3 * np.pi * (x+1) * np.cos(3*np.pi * x) + 3*np.pi * np.cos(3*np.pi * x))
-h = np.logspace(-1, -4, 10)
+h = np.logspace(-1, -4, 100)
 
 sol = lambda x: np.sin(3 * np.pi * x)
 err = np.zeros(len(h))
