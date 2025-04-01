@@ -31,13 +31,16 @@ b = 1
 alpha = 0
 beta = 0
 r = lambda x: np.exp(x) * (-9*np.pi**2 * (x+1) * np.sin(3* np.pi * x) + 3 * np.pi * (x+1) * np.cos(3*np.pi * x) + 3*np.pi * np.cos(3*np.pi * x))
-h = np.logspace(-1, -4, 100)
+#h = np.logspace(-1, -4, 100)
+h = [1/4]
 
 sol = lambda x: np.sin(3 * np.pi * x)
 err = np.zeros(len(h))
 
 for i in range(len(h)):
     A, S, x = makeSys(a, b, h[i], alpha, beta, r)
+    print(A)
+    print(S)
     y = np.linalg.solve(A, S)
     ysol = sol(x)
     print('h = ', h[i])
